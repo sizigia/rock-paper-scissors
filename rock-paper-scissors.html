@@ -1,0 +1,34 @@
+<!DOCTYPE <html>>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <script>
+
+            function computerPlay(){
+                let options=["rock", "paper", "scissors"];
+                return options[Math.floor(Math.random()*options.length)];
+            }
+
+            function playRound(playerSelection, computerSelection){
+                let value1 = (playerSelection==="rock"&&computerSelection==="scissors") || (playerSelection==="paper"&&computerSelection==="rock") || (playerSelection==="scissors"&&computerSelection==="paper");
+                let value2 = (playerSelection==="rock"&&computerSelection==="paper") || (playerSelection==="paper"&&computerSelection==="scissors") || (playerSelection==="scissors"&&computerSelection==="rock");
+                let value3 = (playerSelection===computerSelection);
+                let winner = `You WIN, ${playerSelection} beats ${computerSelection}!`;
+                let loser = `You LOSE, ${computerSelection} beats ${playerSelection}!`;
+                if (value1){
+                    console.log(winner);
+                    }
+                    else if (value2) {
+                    console.log(loser);
+                    }
+                    else if (value3) {
+                    console.log("It's a tie! Let's go for another round");
+                    }
+                return
+            }
+            const playerSelection=window.prompt('Rock/Scissors/Paper? \n (the game is case insensitive)').toLowerCase();
+            const computerSelection = computerPlay();
+            console.log(playRound(playerSelection, computerSelection));
+        </script>
+    </head>
+</html>
