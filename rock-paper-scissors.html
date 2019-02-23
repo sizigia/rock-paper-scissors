@@ -3,33 +3,79 @@
     <head>
         <title>Rock Paper Scissors</title>
         <script>
-            function playRound(playerSelection, computerSelection){
+            let playerSelection = "";
+            let computerSelection = "";
+
+            window.confirm("Are you ready to play?")
+                playerSelection=window.prompt().toLowerCase();
+                game();
+            
+            function game() {
+                let i = 0;
+                let player = 0;
+                let computer = 0;
+
+                function computerPlay(){
+                const options=["rock", "paper", "scissors"];
+                return computerSelection = options[Math.floor(Math.random()*options.length)];
+                }
+                
+                function playRound(playerSelection, computerSelection){
+                const winnerCase1 = (playerSelection==="rock"&&computerSelection==="scissors");
+                const winnerCase2 = (playerSelection==="paper"&&computerSelection==="rock");
+                const winnerCase3 = (playerSelection==="scissors"&&computerSelection==="paper");
+                const winnerCases = (winnerCase1 || winnerCase2 || winnerCase3);
+                let tie = "It's a tie!";
+                let win = `You win, ${playerSelection} beats ${computerSelection}!`;
+                let lose = `You lose, ${computerSelection} beats ${playerSelection}`;
+                
                 if (playerSelection===computerSelection){
-                    console.log("It's a tie!");
+                    console.log(tie);
+                    player;
+                    computer;
                 }
                 else if (playerSelection !== computerSelection) {
-                    switch ("rock">"scissors" || "paper">"rock" || "scissors">"paper"){
-                        case (playerSelection > computerSelection):
-                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                    switch (true){
+                        case (winnerCases):
+                        player++;
+                        computer;
+                        console.log(win);
                         break;
-                        case (playerSelection < computerSelection):
-                        console.log(`You lose, ${computerSelection} beats ${playerSelection}`);
+                        case (!winnerCases):
+                        computer++;
+                        player;
+                        console.log(lose);
                         break;
                     }
                 }
                 else{
                     console.log("Work in progress!");
                 }
-                return            
+                return [player, computer];
             }
-            function computerPlay(){
-                const options=["rock", "paper", "scissors"];
-                return options[Math.floor(Math.random()*options.length)];
+            
+            if (i=0){
+                    i++;
+                    playRound();
+                    console.log(`Round ${i}! \n Player: ${player} vs. Computer: ${computer}`);
+                }
+                else if (i<5){
+                    i++;
+                    playRound();
+                }
+                else {
+                    if (player > computer){
+                            console.log(`Round ${i}! \n You WIN! Congrats!!`);    
+                        }
+                        else if (player < computer){
+                            console.log(`Round ${i}! \n Oh, bummer! You lose. Let's play again`);
+                        }
+                }    
+            return console.log(`Round ${i}! \n Player: ${player} vs. Computer: ${computer}`);
             }
-            const playerSelection="SCIssorS".toLowerCase();
-            const computerSelection = computerPlay();
-            console.log(computerSelection);
-            console.log(playRound(playerSelection,computerSelection));
+
+            
+            
         </script>
     </head>
 </html>
