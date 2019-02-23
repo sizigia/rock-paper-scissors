@@ -3,7 +3,7 @@
     <head>
         <title>Rock Paper Scissors</title>
         <script>
-            let i = 1;
+            let i = 0;
             let player = 0;
             let computer = 0;
             let playerSelection;
@@ -14,32 +14,29 @@
             }
             let computerSelection = computerPlay();
 
-            window.confirm("Are you ready to play?");
+            window.confirm("Are you ready to start playing?");
             playerSelection=window.prompt("pick your weapon!","rock - scissors - paper").toLowerCase();
             game();
 
             function game() {
-                if (i <= 3){
+                if (i < 4){
+                    ++i;
                     playRound();
                     console.log(`Round ${i} - Player: ${player} vs. Computer: ${computer}`);
-                    window.confirm("Are you ready to play for the next round?");
+                    window.confirm(`Are you ready to play for round ${i + 1}?`);
                     computerSelection = computerPlay();
                     playerSelection=window.prompt("pick your weapon!","rock - scissors - paper").toLowerCase();
-                    ++i;
                     game();
                 }
                 else if (i=4){
                     ++i;
-                    window.confirm("Are you ready to play for the final round?");
-                    computerSelection = computerPlay();
-                    playerSelection=window.prompt("pick your weapon!","rock - scissors - paper").toLowerCase();
                     playRound();
                     console.log(`Round ${i} - Player: ${player} vs. Computer: ${computer}`);
                         if (player > computer){
                             console.log(`You WIN, with ${player} over ${computer}! Congrats!!`);
                         }
                         else if (player < computer){
-                            console.log(`Oh, bummer, you lose for ${computer - player}. Play again!`);
+                            console.log(`Oh, bummer, you lose ${computer} to ${player}. Play again!`);
                         }
                         else if (player === computer){
                             console.log("Wow, it's a tie! GAME OVER.");
