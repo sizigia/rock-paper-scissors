@@ -3,32 +3,33 @@
     <head>
         <title>Rock Paper Scissors</title>
         <script>
-
+            function playRound(playerSelection, computerSelection){
+                if (playerSelection===computerSelection){
+                    console.log("It's a tie!");
+                }
+                else if (playerSelection !== computerSelection) {
+                    switch ("rock">"scissors" || "paper">"rock" || "scissors">"paper"){
+                        case (playerSelection > computerSelection):
+                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
+                        break;
+                        case (playerSelection < computerSelection):
+                        console.log(`You lose, ${computerSelection} beats ${playerSelection}`);
+                        break;
+                    }
+                }
+                else{
+                    console.log("Work in progress!");
+                }
+                return            
+            }
             function computerPlay(){
-                let options=["rock", "paper", "scissors"];
+                const options=["rock", "paper", "scissors"];
                 return options[Math.floor(Math.random()*options.length)];
             }
-
-            function playRound(playerSelection, computerSelection){
-                let value1 = (playerSelection==="rock"&&computerSelection==="scissors") || (playerSelection==="paper"&&computerSelection==="rock") || (playerSelection==="scissors"&&computerSelection==="paper");
-                let value2 = (playerSelection==="rock"&&computerSelection==="paper") || (playerSelection==="paper"&&computerSelection==="scissors") || (playerSelection==="scissors"&&computerSelection==="rock");
-                let value3 = (playerSelection===computerSelection);
-                let winner = `You WIN, ${playerSelection} beats ${computerSelection}!`;
-                let loser = `You LOSE, ${computerSelection} beats ${playerSelection}!`;
-                if (value1){
-                    console.log(winner);
-                    }
-                    else if (value2) {
-                    console.log(loser);
-                    }
-                    else if (value3) {
-                    console.log("It's a tie! Let's go for another round");
-                    }
-                return
-            }
-            const playerSelection=window.prompt('Rock/Scissors/Paper? \n (the game is case insensitive)').toLowerCase();
+            const playerSelection="SCIssorS".toLowerCase();
             const computerSelection = computerPlay();
-            console.log(playRound(playerSelection, computerSelection));
+            console.log(computerSelection);
+            console.log(playRound(playerSelection,computerSelection));
         </script>
     </head>
 </html>
