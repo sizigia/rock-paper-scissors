@@ -14,18 +14,19 @@
             }
             let computerSelection = computerPlay();
 
-            window.confirm("Are you ready to start playing?");
-            playerSelection=window.prompt("pick your weapon!","rock - scissors - paper").toLowerCase();
+            if (window.confirm("Are you ready to start playing?")){
+            playerSelection=window.prompt("Pick your weapon!","rock - scissors - paper").toLowerCase();
             game();
+            }
 
             function game() {
                 if (i < 4){
                     ++i;
                     playRound();
                     console.log(`Round ${i} - Player: ${player} vs. Computer: ${computer}`);
-                    window.confirm(`Are you ready to play for round ${i + 1}?`);
+                    window.confirm(`Are you ready to play for ROUND ${i + 1}?`);
                     computerSelection = computerPlay();
-                    playerSelection=window.prompt("pick your weapon!","rock - scissors - paper").toLowerCase();
+                    playerSelection=window.prompt("Pick your weapon!","rock - scissors - paper").toLowerCase();
                     game();
                 }
                 else if (i=4){
@@ -51,8 +52,6 @@
                 
                 if (playerSelection===computerSelection){
                     console.log("It's a tie!");
-                    player;
-                    computer;
                 }
                 else if (playerSelection !== computerSelection) {
                     if (winnerCases){
