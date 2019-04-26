@@ -1,0 +1,37 @@
+body {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 2px;
+    grid-template-areas: 
+    "head"
+    "counter"
+    "message"
+    "container";
+    justify-self: center;
+    align-self: center;
+}
+
+.head {
+    grid-area: "head";
+    justify-self: center;
+}
+.counter {
+    grid-area: "counter";
+    justify-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.message {
+    grid-area: "message";
+    justify-self: center;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+

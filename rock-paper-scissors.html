@@ -1,77 +1,34 @@
-<!DOCTYPE <html>>
+<!DOCTYPE <html>
 <html>
 
 <head>
     <title>Rock Paper Scissors</title>
-    <script>
-        let i = 0;
-        let playerScore = 0;
-        let computerScore = 0;
-        let playerSelection;
-
-        function computerPlay() {
-            const options = ["rock", "paper", "scissors"];
-            return options[Math.floor(Math.random() * options.length)];
-        }
-        let computerSelection = computerPlay();
-
-        if (window.confirm("Are you ready to start playing?")) {
-            playerSelection = window.prompt("Pick your weapon!", "rock - scissors - paper").toLowerCase();
-            game();
-        }
-
-        function game() {
-            if (i < 4) {
-                ++i;
-                playRound();
-                console.log(`Round ${i} - Player: ${playerScore} vs. Computer: ${computerScore}`);
-                window.confirm(`Are you ready to play for ROUND ${i + 1}?`);
-                computerSelection = computerPlay();
-                playerSelection = window.prompt("Pick your weapon!", "rock - scissors - paper").toLowerCase();
-                game();
-            }
-            else if (i = 4) {
-                ++i;
-                playRound();
-                console.log(`Round ${i} - Player: ${playerScore} vs. Computer: ${computerScore}`);
-                if (playerScore > computerScore) {
-                    console.log(`You WIN, with ${playerScore} over ${computerScore}! Congrats!!`);
-                }
-                else if (playerScore < computerScore) {
-                    console.log(`Oh, bummer, you lose ${computerScore} to ${playerScore}. Play again!`);
-                }
-                else if (playerScore === computerScore) {
-                    console.log("Wow, it's a tie! GAME OVER.");
-                }
-            }
-
-            function playRound() {
-                const winnerCase1 = (playerSelection === "rock" && computerSelection === "scissors");
-                const winnerCase2 = (playerSelection === "paper" && computerSelection === "rock");
-                const winnerCase3 = (playerSelection === "scissors" && computerSelection === "paper");
-                const winnerCases = (winnerCase1 || winnerCase2 || winnerCase3);
-
-                if (playerSelection === computerSelection) {
-                    console.log("It's a tie!");
-                }
-                else if (playerSelection !== computerSelection) {
-                    if (winnerCases) {
-                        playerScore++;
-                        console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
-                    }
-                    else if (!winnerCases) {
-                        computerScore++;
-                        console.log(`You lose, ${computerSelection} beats ${playerSelection}`);
-                    }
-                }
-                else {
-                    console.log("Work in progress!");
-                }
-                return [playerScore, computerScore];
-            }
-            return
-        }
-    </script>
+    <link rel="stylesheet" href="game.css" type="text/css">
 </head>
+
+<body>
+    <div class="head">
+        <h1 id="title">ROCK / PAPER / SCISSORS</h1>
+    </div>
+    <div class="message">
+        <p id="round">Round 0</p>
+    </div>
+    <div class="counter">
+        <p>Player:</p>
+        <p id="player"></p>
+        <p>versus</p>
+        <p>Computer:</p>
+        <p id="computer"></p>
+    </div>
+    <div class="message">
+        <p id="msg">Are you ready to play?</p>
+    </div>
+    <div class="container">
+        <a href="#"><img src="img/noun_rock_88661.svg" alt="Rock" id="rock"></a>
+        <a href="#"><img src="img/noun_Paper_88662.svg" alt="Paper" id="paper"></a>
+        <a href="#"><img src="img/noun_Scissors_88666.svg" alt="Scissors" id="scissors"></a>
+    </div>
+    <script src="game-logic.js"></script>
+</body>
 
 </html>
