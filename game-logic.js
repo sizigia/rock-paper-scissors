@@ -46,6 +46,7 @@ function game() {
             playRound();
             break;
         case 5:
+            round.innerHTML = `FINAL ROUND`;
             if (playerScore.innerHTML > computerScore.innerHTML) {
                 message.innerHTML = `You WIN, with ${ playerScore.innerHTML } over ${ computerScore.innerHTML }! Congrats!!`;
             }
